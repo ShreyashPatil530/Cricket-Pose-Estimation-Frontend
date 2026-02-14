@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Upload, Play, CheckCircle, AlertCircle, BarChart3, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/analysis';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+const API_BASE = `${BACKEND_URL}/api/analysis`;
 
 const Dashboard = () => {
     const [file, setFile] = useState<File | null>(null);
@@ -117,7 +118,7 @@ const Dashboard = () => {
                                     <div className="space-y-8">
                                         <div className="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
                                             <video
-                                                src={`http://localhost:5000/public/processed/processed_${analysisData.fileName}.mp4`}
+                                                src={`${BACKEND_URL}/public/processed/processed_${analysisData.fileName}.mp4`}
                                                 controls
                                                 className="w-full h-full object-contain"
                                             />
