@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Upload, Play, CheckCircle, AlertCircle, BarChart3, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE = 'http://localhost:5000/api/analysis';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/analysis';
 
 const Dashboard = () => {
     const [file, setFile] = useState<File | null>(null);
